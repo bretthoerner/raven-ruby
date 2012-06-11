@@ -39,7 +39,7 @@ module Raven
       hostname = Socket.gethostname
       @server_name = options[:server_name] || Socket.gethostbyname(hostname) rescue hostname
 
-      @modules = options[:modules] || Gem::Specification.each.inject({}){|memo, spec| memo[spec.name] = spec.version; memo}
+      @modules = [] # options[:modules] || Gem::Specification.each.inject({}){|memo, spec| memo[spec.name] = spec.version; memo}
       @extra = options[:extra]
 
       @interfaces = {}
